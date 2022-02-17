@@ -11,11 +11,27 @@ export class ColorUtils {
     return newColor;
   }
 
+  public static randomColor(): Color {
+    const newColor = {
+      r: this._generateRandomColor(),
+      g: this._generateRandomColor(),
+      b: this._generateRandomColor(),
+    };
+
+    return newColor;
+  }
+
   private static _generateRandomColorFromRange(color: number, range: number): number {
     const newColor = color + range * 2 * (Math.random() - 0.5);
 
     if (newColor > 255) return 255;
     if (newColor < 0) return 0;
+    return newColor;
+  }
+
+  private static _generateRandomColor(): number {
+    const newColor = Math.round(255 * Math.random());
+
     return newColor;
   }
 }
