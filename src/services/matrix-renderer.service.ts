@@ -14,8 +14,10 @@ export class MatrixRenderer {
       for (let x = 0; x < matrix.width; x++) {
         const cell = matrix.getPoint(x, y);
 
-        this._p5.fill(cell.r, cell.g, cell.b);
-        this._p5.rect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+        if (cell) {
+          this._p5.fill(cell.r, cell.g, cell.b);
+          this._p5.rect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+        }
       }
     }
   }
